@@ -3,6 +3,7 @@ import { StyleSheet, Text, View,TouchableOpacity, FlatList } from 'react-native'
 import React, { useState } from 'react';
 import Header from "./App/Header";
 import Footer from "./App/Footer";
+import ListeJoueur from "./App/ListeJoueurs";
 
 // export default function App() {
 //   return (
@@ -36,17 +37,7 @@ const App = () => {
   return (
       <View>
           <Header></Header>
-        <FlatList
-            data={data}
-            renderItem={renderItem}
-            keyExtractor={(item) => item.id.toString()}
-        />
-        <TouchableOpacity
-            onPress={addCard}
-
-        >
-          <Text>Ajouter une carte</Text>
-        </TouchableOpacity>
+          <ListeJoueur></ListeJoueur>
           <Footer></Footer>
       </View>
   );
