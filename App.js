@@ -34,7 +34,7 @@ const App = () => {
   );
 
   return (
-      <View style={{ flex: 1, padding: 40 }}>
+      <View>
           <Header></Header>
         <FlatList
             data={data}
@@ -43,9 +43,9 @@ const App = () => {
         />
         <TouchableOpacity
             onPress={addCard}
-            style={{ backgroundColor: 'blue', padding: 10, alignItems: 'center', borderRadius: 5 }}
+
         >
-          <Text style={{ color: 'white' }}>Ajouter une carte</Text>
+          <Text>Ajouter une carte</Text>
         </TouchableOpacity>
           <Footer></Footer>
       </View>
