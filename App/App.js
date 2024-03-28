@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View,TouchableOpacity, FlatList } from 'react-native';
 import React, { useState } from 'react';
+import Header from "./Header";
 
 // export default function App() {
 //   return (
@@ -33,6 +34,7 @@ const App = () => {
 
   return (
       <View style={{ flex: 1, padding: 40 }}>
+          <Header title={"Lord Strategist"}></Header>
         <FlatList
             data={data}
             renderItem={renderItem}
@@ -49,13 +51,3 @@ const App = () => {
 };
 
 export default App;
-
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
