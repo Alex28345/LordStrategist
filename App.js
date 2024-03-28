@@ -4,6 +4,10 @@ import React, { useState } from 'react';
 import Header from "./App/Header";
 import Footer from "./App/Footer";
 import ListeJoueur from "./App/ListeJoueurs";
+import {Provider} from "react-redux";
+import styles from "./App/styles";
+import AddCardModal from "./App/addCardModal";
+import store from "./App/Store";
 
 // export default function App() {
 //   return (
@@ -19,12 +23,8 @@ const App = () => {
     { id: 1, name: 'John', age: 30, profession: 'Developer' },
     { id: 2, name: 'Alice', age: 25, profession: 'Designer' },
   ]);
-  const [count, setCount] = useState(3); // Utilisé pour générer un ID unique pour chaque nouvelle carte
 
-  const addCard = () => {
-    setData([...data, { id: count, name: 'New User', age: 0, profession: 'Unknown' }]);
-    setCount(count + 1);
-  };
+  const [modalVisible, setModalVisible] = useState(false);
 
   const renderItem = ({ item }) => (
       <View style={{ padding: 10, borderWidth: 1, borderColor: '#ccc', marginBottom: 10 }}>
