@@ -34,7 +34,7 @@ const App = () => {
 
   return (
       <View style={{ flex: 1, padding: 40 }}>
-          <Header></Header>
+          <Header title={"Lord Strategist"}></Header>
         <FlatList
             data={data}
             renderItem={renderItem}
