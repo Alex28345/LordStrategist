@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     headerTitle: {
         marginTop: '10%',
         color: 'white',
-        fontSize: "25px",
+        fontSize: 25,
         fontWeight: 'bold',
     },
     image: {
