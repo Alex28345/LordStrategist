@@ -24,8 +24,6 @@ const App = () => {
     { id: 2, name: 'Alice', age: 25, profession: 'Designer' },
   ]);
 
-  const [modalVisible, setModalVisible] = useState(false);
-
   const renderItem = ({ item }) => (
       <View style={{ padding: 10, borderWidth: 1, borderColor: '#ccc', marginBottom: 10 }}>
         <Text>Name: {item.name}</Text>
@@ -39,7 +37,6 @@ const App = () => {
           <View style={styles.body}>
               <Header></Header>
               <ListeJoueur></ListeJoueur>
-              <AddCardModal modalVisible={modalVisible} setModalVisible={setModalVisible} />
               <Footer></Footer>
           </View>
       </Provider>

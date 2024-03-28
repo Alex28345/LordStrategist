@@ -27,6 +27,10 @@ const addCardModal = ({ modalVisible, setModalVisible }) => {
                 activeOpacity={1}
                 onPressOut={() => setModalVisible(false)}
             >
+                <TouchableOpacity
+                    activeOpacity={1}
+                    onPress={(e) => e.stopPropagation()}
+                >
                 <View style={{ backgroundColor: 'white', padding: 50, borderRadius: 5, borderWidth: 5}}>
                     <TextInput
                         style={{ borderWidth: 1, borderRadius: 10, marginBottom: 10, padding: 3}}
@@ -71,6 +75,7 @@ const addCardModal = ({ modalVisible, setModalVisible }) => {
                         <Text style={{ color: 'white' }}>Valider</Text>
                     </TouchableOpacity>
                 </View>
+                </TouchableOpacity>
             </TouchableOpacity>
         </Modal>
       );
