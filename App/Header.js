@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles.js';
-import { View, Text, TouchableOpacity, Image } from 'react-native';
+import { View, Text } from 'react-native';
 
 const Header = () => {
     return (

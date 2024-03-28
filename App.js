@@ -3,6 +3,7 @@ import { StyleSheet, Text, View,TouchableOpacity, FlatList } from 'react-native'
 import React, { useState } from 'react';
 import Header from "./App/Header";
 import Footer from "./App/Footer";
+import styles from "./App/styles";
 
 // export default function App() {
 //   return (
@@ -17,6 +18,14 @@ const App = () => {
   const [data, setData] = useState([
     { id: 1, name: 'John', age: 30, profession: 'Developer' },
     { id: 2, name: 'Alice', age: 25, profession: 'Designer' },
+      { id: 2, name: 'Alice', age: 25, profession: 'Designer' },
+      { id: 2, name: 'Alice', age: 25, profession: 'Designer' },
+      { id: 2, name: 'Alice', age: 25, profession: 'Designer' },
+      { id: 2, name: 'Alice', age: 25, profession: 'Designer' },
+      { id: 2, name: 'Alice', age: 25, profession: 'Designer' },
+      { id: 2, name: 'Alice', age: 25, profession: 'Designer' },
+      { id: 2, name: 'Alice', age: 25, profession: 'Designer' },
+
   ]);
   const [count, setCount] = useState(3); // Utilisé pour générer un ID unique pour chaque nouvelle carte
 
@@ -34,19 +43,14 @@ const App = () => {
   );
 
   return (
-      <View>
+      <View style={styles.body}>
           <Header></Header>
         <FlatList
             data={data}
             renderItem={renderItem}
             keyExtractor={(item) => item.id.toString()}
         />
-        <TouchableOpacity
-            onPress={addCard}
 
-        >
-          <Text>Ajouter une carte</Text>
-        </TouchableOpacity>
           <Footer></Footer>
       </View>
   );
