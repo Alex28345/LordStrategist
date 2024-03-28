@@ -27,5 +27,5 @@ export const playerSlice = createSlice({
     }
 })
 
-export const playerList = (state) => state.player;
+export const playerList = (state) => state.player.value;
 export default playerSlice.reducer;

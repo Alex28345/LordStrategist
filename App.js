@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import Header from "./App/Header";
 import Footer from "./App/Footer";
 import ListeJoueur from "./App/ListeJoueurs";
+import store from "./App/Store";
+import {Provider} from "react-redux";
 
 // export default function App() {
 //   return (
@@ -35,11 +37,13 @@ const App = () => {
   );
 
   return (
-      <View>
-          <Header></Header>
-          <ListeJoueur></ListeJoueur>
-          <Footer></Footer>
-      </View>
+      <Provider store={store}>
+          <View>
+              <Header></Header>
+              <ListeJoueur></ListeJoueur>
+              <Footer></Footer>
+          </View>
+      </Provider>
   );
 };
 
