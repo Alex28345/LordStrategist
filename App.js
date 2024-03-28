@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View,TouchableOpacity, FlatList } from 'react-native';
 import React, { useState } from 'react';
 import Header from "./App/Header";
+import Footer from "./App/Footer";
 
 // export default function App() {
 //   return (
@@ -46,6 +47,7 @@ const App = () => {
         >
           <Text style={{ color: 'white' }}>Ajouter une carte</Text>
         </TouchableOpacity>
+          <Footer></Footer>
       </View>
   );
 };
