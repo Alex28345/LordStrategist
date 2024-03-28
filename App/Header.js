@@ -1,28 +1,15 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import styles from './styles.js';
+import { View, Text, TouchableOpacity, Image } from 'react-native';
 
 const Header = () => {
     return (
         <View style={styles.header}>
-            <Text style={styles.headerText}>Lord Strategist</Text>
-            <Text>Players Number :</Text>
+            <Text style={styles.headerTitle}>Lord Strategist</Text>
         </View>
     );
 };
 
-const styles = StyleSheet.create({
-    header: {
-        width: '100%',
-        height: 60,
-        backgroundColor: '#f7287b',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    headerText: {
-        color: 'white',
-        fontSize: 18,
-        fontWeight: 'bold',
-    },
-});
+
 
 export default Header;
