@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View,TouchableOpacity, FlatList } from 'react-native';
 import React, { useState } from 'react';
+import Header from "./Header";
 
 // export default function App() {
 //   return (
@@ -33,6 +34,7 @@ const App = () => {
 
   return (
       <View style={{ flex: 1, padding: 40 }}>
+          <Header></Header>
         <FlatList
             data={data}
             renderItem={renderItem}
