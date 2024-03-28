@@ -4,8 +4,6 @@ import React, { useState } from 'react';
 import Header from "./App/Header";
 import Footer from "./App/Footer";
 import ListeJoueur from "./App/ListeJoueurs";
-import store from "./App/Store";
-import {Provider} from "react-redux";
 
 // export default function App() {
 //   return (
@@ -38,9 +36,10 @@ const App = () => {
 
   return (
       <Provider store={store}>
-          <View>
+          <View style={styles.body}>
               <Header></Header>
               <ListeJoueur></ListeJoueur>
+              <AddCardModal modalVisible={modalVisible} setModalVisible={setModalVisible} />
               <Footer></Footer>
           </View>
       </Provider>
