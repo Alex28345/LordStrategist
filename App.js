@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Header from "./App/Header";
 import Footer from "./App/Footer";
 import styles from "./App/styles";
+import ListeJoueur from "./App/ListeJoueurs";
 
 // export default function App() {
 //   return (
@@ -45,12 +46,7 @@ const App = () => {
   return (
       <View style={styles.body}>
           <Header></Header>
-        <FlatList
-            data={data}
-            renderItem={renderItem}
-            keyExtractor={(item) => item.id.toString()}
-        />
-
+          <ListeJoueur></ListeJoueur>
           <Footer></Footer>
       </View>
   );
