@@ -76,19 +76,17 @@ const styles = StyleSheet.create({
     },
 
     searchBar: {
-        position: "absolute",
-        zIndex: 10,
         backgroundColor: "#FFF",
-        marginTop: 10,
+        marginTop: "2%",
         borderColor: "black",
         borderWidth: 2,
         width: 350,
         borderRadius: 50,
-        height: 40
+        height: "6%"
     },
 
     flatList: {
-        height: "72%",
+        height: "65.1%",
         width: "100%",
         display: "flex"
     },
