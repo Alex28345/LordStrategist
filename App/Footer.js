@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
 import styles from './styles';
 import {View, Text, TouchableOpacity, Image, ViewComponent} from 'react-native';
-import AddCardModal from "./addCardModal";
+import CardModal from "./CardModal";
 
 const Footer = () => {
     const [modalVisible, setModalVisible] = useState(false);
 
     return (
         <View style={styles.footer}>
-            <AddCardModal modalVisible={modalVisible} setModalVisible={setModalVisible} />
+            <CardModal modalVisible={modalVisible} setModalVisible={setModalVisible} />
             <TouchableOpacity>
                 <Image style={styles.footerImage} source={require("../assets/home.png")}></Image>
             </TouchableOpacity>

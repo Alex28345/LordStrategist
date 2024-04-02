@@ -1,18 +1,37 @@
 import {Modal, Text, TextInput, TouchableOpacity, View} from "react-native";
-import {useState} from "react";
-import {addPlayer} from "./PlayerSlice";
-import {useDispatch} from "react-redux";
-const addCardModal = ({ modalVisible, setModalVisible}) => {
+import {useEffect, useState} from "react";
+import {addOrUpdatePlayer} from "./PlayerSlice";
+import {useDispatch, useSelector} from "react-redux";
+import {validate} from "@babel/core/lib/config/validation/options";
+const CardModal = ({ modalVisible, setModalVisible, id = null}) => {
+    const [actualId, setActualId] = useState(id);
     const [name, setName] = useState('');
     const [race, setRace] = useState('');
     const [hp, setHp] = useState('');
     const [mp, setMp] = useState('');
     const [role, setRole] = useState('');
     const [guild, setGuild] = useState('');
+
+    const data = id !== null ? useSelector(state => state.main.playerList.find(player => player.id === id)) : null;
+console.log(data)
+    console.log(id)
+
+    useEffect(() => {
+        if (data) {
+            setName(data.name);
+            setRace(data.race);
+            setHp(data.hp.toString());
+            setMp(data.mp.toString());
+            setRole(data.role);
+            setGuild(data.guild);
+        }
+    }, [data]);
+
+
     const dispatch = useDispatch();
 
-    const addCard = () => {
-        dispatch(addPlayer({name: name, race: race, hp: hp, mp: mp, role: role, guild: guild}));
+    const validateAction = () => {
+        dispatch(addOrUpdatePlayer({id: actualId, name: name, race: race, hp: hp, mp: mp, role: role, guild: guild}));
         // Reset all states
         setName('');
         setRace('');
@@ -56,12 +75,14 @@ const addCardModal = ({ modalVisible, setModalVisible}) => {
                         placeholder="HP"
                         value={hp}
                         onChangeText={setHp}
+                        keyboardType="numeric"
                     />
                     <TextInput
                         style={{ borderWidth: 1, borderRadius: 10, marginBottom: 10, padding: 3}}
                         placeholder="MP"
                         value={mp}
                         onChangeText={setMp}
+                        keyboardType="numeric"
                     />
                     <TextInput
                         style={{ borderWidth: 1, borderRadius: 10, marginBottom: 10, padding: 3}}
@@ -76,7 +97,7 @@ const addCardModal = ({ modalVisible, setModalVisible}) => {
                         onChangeText={setGuild}
                     />
                     <TouchableOpacity
-                        onPress={addCard}
+                        onPress={validateAction}
                         style={{ backgroundColor: 'blue', padding: 10, alignItems: 'center', borderRadius: 5, marginTop: 10 }}
                     >
                         <Text style={{ color: 'white' }}>Valider</Text>
@@ -88,4 +109,4 @@ const addCardModal = ({ modalVisible, setModalVisible}) => {
       );
 }
 
-export default addCardModal;
+export default CardModal;

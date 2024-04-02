@@ -12,9 +12,10 @@ export const playerSlice = createSlice({
         nextID: 5,
     },
     reducers: {
-        addPlayer: (state, data) => {
+        addOrUpdatePlayer: (state, data) => {
             data = data.payload;
-            state.playerList.push({id: state.nextID, name: data['name'], race: data['race'], hp: data['hp'], mp: data['mp'], role: data['role'], guild: data['guild']});
+            console.log(data.id ?? state.nextID)
+            state.playerList.push({id: data.id ?? state.nextID, name: data['name'], race: data['race'], hp: data['hp'], mp: data['mp'], role: data['role'], guild: data['guild']});
             state.nextID += 1;
         },
         deletePlayer: (state, id) => {
@@ -22,15 +23,13 @@ export const playerSlice = createSlice({
             for (let i = 0; i < state.playerList.length; i++) {
                 if (state.playerList[i]["id"] === id){
                     state.playerList.splice(i, 1);
-
                 }
             }
         },
-
     }
 })
-export const { addPlayer ,deletePlayer} = playerSlice.actions
+export const { addOrUpdatePlayer ,deletePlayer} = playerSlice.actions
 
 
-export const playerList = (state) => state.player
+export const playerList = (state) => state.playerList
 export default playerSlice.reducer;

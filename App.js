@@ -6,7 +6,7 @@ import Footer from "./App/Footer";
 import ListPresenter from "./App/ListPresenter";
 import {Provider} from "react-redux";
 import styles from "./App/styles";
-import AddCardModal from "./App/addCardModal";
+import AddCardModal from "./App/CardModal";
 import store from "./App/Store";
 
 // export default function App() {

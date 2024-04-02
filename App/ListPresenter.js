@@ -1,11 +1,15 @@
-import React from 'react';
-import {View, Text, FlatList, StyleSheet, TouchableOpacity} from 'react-native';
+import React, {useState} from 'react';
+import {View, Text, FlatList, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import { deletePlayer} from "./PlayerSlice";
 import {useDispatch, useSelector} from 'react-redux';
+import styles from "./styles";
+import CardModal from "./CardModal";
 
 const ListPresenter = () => {
     const data = useSelector(state => state.main.playerList);
     const dispach = useDispatch();
+    const [modalVisible, setModalVisible] = useState(false);
+
 
     const deleteCard = (id) => {
         dispach(deletePlayer(id))
@@ -24,6 +28,10 @@ const ListPresenter = () => {
                 onPress={() => deleteCard(item.id)}
             >
                 <Text>---------------DELETE--------------------</Text>
+            </TouchableOpacity>
+            <CardModal modalVisible={modalVisible} setModalVisible={setModalVisible} id={item.id} />
+            <TouchableOpacity onPress={() => setModalVisible(true)}>
+                <Text>---------------MODIFIER--------------------</Text>
             </TouchableOpacity>
         </View>
     );
