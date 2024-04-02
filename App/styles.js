@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     container: {
         display: "flex",
         justifyContent: "flex-start",
-        alignItems: "center",
+        alignItems: "center"
     },
 
     searchBar: {
@@ -88,7 +88,8 @@ const styles = StyleSheet.create({
     flatList: {
         height: "65.1%",
         width: "100%",
-        display: "flex"
+        display: "flex",
+        backgroundColor: "white"
     },
 
     item: {
