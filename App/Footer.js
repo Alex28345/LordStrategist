@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styles from './styles';
-import {View, Text, TouchableOpacity, Image, ViewComponent} from 'react-native';
+import {Image, TouchableOpacity, View} from 'react-native';
 import CardModal from "./CardModal";
 
 const Footer = ({ navigateTo }) => {

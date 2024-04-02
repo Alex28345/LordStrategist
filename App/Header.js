@@ -1,8 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styles from './styles.js';
-import {View, Text, TextInput} from 'react-native';
-import {updateFilter} from "./HeaderSlice";
-import {useDispatch, useSelector} from "react-redux";
+import {Text, View} from 'react-native';
 
 const Header = () => {
 
