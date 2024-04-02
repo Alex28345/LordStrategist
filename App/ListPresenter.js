@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import {View, Text, FlatList, StyleSheet, TouchableOpacity, Image, TextInput} from 'react-native';
-import { deletePlayer} from "./PlayerSlice";
+import {FlatList, Image, Text, TextInput, TouchableOpacity, View} from 'react-native';
+import {deletePlayer} from "./PlayerSlice";
 import {useDispatch, useSelector} from 'react-redux';
 import styles from "./styles";
 import CardModal from "./CardModal";
-import {updateFilter} from "./HeaderSlice";
+import {updateFilter} from "./FilterSlice";
 
 const ListPresenter = () => {
     const data = useSelector(state => state.main.playerList);
@@ -12,7 +12,7 @@ const ListPresenter = () => {
     const [modalVisible, setModalVisible] = useState(false);
     const filter = useSelector(state => state.playerFilter.filter);
     const filteredData = data.filter(
-        player => player.name.toLocaleLowerCase().includes(filter));
+        player => player.name.toLocaleLowerCase().includes(filter.toLowerCase()));
 
     //barre de recherche
     const [givenFilter, setGivenFilter] = useState("");

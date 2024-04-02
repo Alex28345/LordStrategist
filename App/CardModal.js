@@ -2,7 +2,7 @@ import {Modal, Text, TextInput, TouchableOpacity, View} from "react-native";
 import {useEffect, useState} from "react";
 import {addOrUpdatePlayer} from "./PlayerSlice";
 import {useDispatch, useSelector} from "react-redux";
-import {validate} from "@babel/core/lib/config/validation/options";
+
 const CardModal = ({ modalVisible, setModalVisible, id = null}) => {
     const [actualId, setActualId] = useState(id);
     const [name, setName] = useState('');
