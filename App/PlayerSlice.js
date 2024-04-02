@@ -12,11 +12,18 @@ export const playerSlice = createSlice({
         nextID: 5,
     },
     reducers: {
-        addOrUpdatePlayer: (state, data) => {
-            data = data.payload;
-            console.log(data.id ?? state.nextID)
-            state.playerList.push({id: data.id ?? state.nextID, name: data['name'], race: data['race'], hp: data['hp'], mp: data['mp'], role: data['role'], guild: data['guild']});
-            state.nextID += 1;
+        addOrUpdatePlayer: (state, action) => {
+            const data = action.payload;
+            const playerIndex = state.playerList.findIndex(player => player.id === data.id);
+
+            if (playerIndex !== -1) {
+                // Player with the given id exists, update the player
+                state.playerList[playerIndex] = {id: data.id, name: data.name, race: data.race, hp: data.hp, mp: data.mp, role: data.role, guild: data.guild};
+            } else {
+                // Player with the given id does not exist, add a new player
+                state.playerList.push({id: data.id ?? state.nextID, name: data.name, race: data.race, hp: data.hp, mp: data.mp, role: data.role, guild: data.guild});
+                state.nextID += 1;
+            }
         },
         deletePlayer: (state, id) => {
             id = id.payload
