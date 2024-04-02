@@ -1,6 +1,6 @@
 import {Modal, Text, TextInput, TouchableOpacity, View} from "react-native";
 import {useState} from "react";
-import {addPlayer} from "./PlayerCard";
+import {addPlayer} from "./PlayerSlice";
 import {useDispatch} from "react-redux";
 const addCardModal = ({ modalVisible, setModalVisible }) => {
     const [name, setName] = useState('');

@@ -1,12 +1,11 @@
 import React from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 import { useSelector} from 'react-redux';
-import {playerList} from "./PlayerCard";
-
-
+import {playerList} from "./PlayerSlice";
 
 const ListeJoueur = () => {
-    const data = useSelector(playerList)
+    const data = useSelector(state => state.main.playerList)
+
     const renderItem = ({ item }) => (
         <View>
             <Text >{`id: ${item.id}`}</Text>

@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const playerSlice = createSlice({
     name: 'playerCards',
     initialState: {
-        player: [
+        playerList: [
             {id: 1, name: 'Gul\'dan', race: 'orc', hp: 50, mp: 200, role: 'dark sorcerer', guild: 'Hord'},
             {id: 2, name: 'Grommash', race: 'orc', hp: 250, mp: 70, role: 'berserker', guild: 'Hord'},
             {id: 3, name: 'Anduin', race: 'Human', hp: 70, mp: 200, role: 'Healer', guild: 'Alliance'},
@@ -29,5 +29,5 @@ export const playerSlice = createSlice({
 export const { addPlayer } = playerSlice.actions
 
 
-export const playerList = (state) => state.player;
+export const playerList = (state) => state.player
 export default playerSlice.reducer;

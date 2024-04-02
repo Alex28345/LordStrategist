@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import playerSlice from "./PlayerCard";
+import playerSlice from "./PlayerSlice";
 
 export default configureStore({
     reducer: {
-        counter: playerSlice,
+        main: playerSlice,
     },
 });
