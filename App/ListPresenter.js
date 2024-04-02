@@ -10,6 +10,9 @@ const ListPresenter = () => {
     const data = useSelector(state => state.main.playerList);
     const dispach = useDispatch();
     const [modalVisible, setModalVisible] = useState(false);
+    const filter = useSelector(state => state.playerFilter.filter);
+    const filteredData = data.filter(
+        player => player.name.toLocaleLowerCase().includes(filter));
 
     //barre de recherche
     const [givenFilter, setGivenFilter] = useState("");
@@ -57,7 +60,7 @@ const ListPresenter = () => {
                 onChangeText={updatingFilter}
             />
             <FlatList
-                data={data}
+                data={filteredData}
                 renderItem={renderItem}
                 keyExtractor={item => item.id.toString()}
                 scrollEnabled={true}
