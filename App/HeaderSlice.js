@@ -7,8 +7,11 @@ export const headerSlice = createSlice({
     },
     reducers: {
         updateFilter: (state, givenFilter) => {
+            givenFilter = givenFilter.payload;
             if (givenFilter.length > 2){
                 state.filter = givenFilter;
+            }else{
+                state.filter = "";
             }
         }
     }

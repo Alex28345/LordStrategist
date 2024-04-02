@@ -6,6 +6,8 @@ import CardModal from "./CardModal";
 const Footer = ({ navigateTo }) => {
     const [modalVisible, setModalVisible] = useState(false);
 
+
+
     return (
         <View style={styles.footer}>
             <CardModal modalVisible={modalVisible} setModalVisible={setModalVisible} />

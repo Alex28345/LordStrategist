@@ -2,26 +2,26 @@ import React, {useState} from 'react';
 import styles from './styles.js';
 import {View, Text, TextInput} from 'react-native';
 import {updateFilter} from "./HeaderSlice";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 const Header = () => {
+    const [givenFilter, setGivenFilter] = useState("");
+    const data2 = useSelector(state => state.playerFilter.filter);
     const dispatch = useDispatch();
     const updatingFilter = (text) => {
         dispatch(updateFilter(text));
-        console.log(text);
-
+        setGivenFilter(text);
     }
-    const [givenFilter] = useState('');
-    return (
 
+    return (
         <View style={styles.header}>
             <Text style={styles.headerTitle}>Lord Strategist</Text>
             <TextInput
                 placeholder={"Type a filter"}
                 value={givenFilter}
-                onChange={() => updatingFilter(givenFilter)}
+                onChangeText={updatingFilter}
             />
-            <Text> {givenFilter}</Text>
+            <Text style={styles.headerTitle}>{data2}</Text>
         </View>
 
     );

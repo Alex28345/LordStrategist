@@ -13,9 +13,6 @@ const CardModal = ({ modalVisible, setModalVisible, id = null}) => {
     const [guild, setGuild] = useState('');
 
     const data = id !== null ? useSelector(state => state.main.playerList.find(player => player.id === id)) : null;
-console.log(data)
-    console.log(id)
-
     useEffect(() => {
         if (data) {
             setName(data.name);
