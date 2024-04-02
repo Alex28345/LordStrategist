@@ -25,6 +25,8 @@ const styles = StyleSheet.create({
         width: 50,
         height: 50
     },
+
+    // FOOTER
     footer: {
         width: '100%',
         height: "12%",
@@ -68,6 +70,19 @@ const styles = StyleSheet.create({
         height: 50,
         borderRadius: 50,
     },
+
+    //CardModal
+
+    cardModal: {
+        backgroundColor: 'white',
+        width: 300,
+        height: 300,
+        padding: 10,
+        borderRadius: 5,
+        borderWidth: 5
+    },
+
+    // Accueil
 
     container: {
         display: "flex",

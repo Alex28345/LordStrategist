@@ -2,6 +2,7 @@ import {Modal, Text, TextInput, TouchableOpacity, View} from "react-native";
 import {useEffect, useState} from "react";
 import {addOrUpdatePlayer} from "./PlayerSlice";
 import {useDispatch, useSelector} from "react-redux";
+import styles from './styles';
 
 const CardModal = ({ modalVisible, setModalVisible, id = null}) => {
     const [actualId, setActualId] = useState(id);
@@ -54,10 +55,10 @@ const CardModal = ({ modalVisible, setModalVisible, id = null}) => {
                     activeOpacity={1}
                     onPress={(e) => e.stopPropagation()}
                 >
-                <View style={{ backgroundColor: 'white', padding: 50, borderRadius: 5, borderWidth: 5}}>
+                <View style={styles.cardModal}>
                     <TextInput
                         style={{ borderWidth: 1, borderRadius: 10, marginBottom: 10, padding: 3}}
-                        placeholder="Nom"
+                        placeholder="Name"
                         value={name}
                         onChangeText={setName}
                     />
@@ -95,9 +96,9 @@ const CardModal = ({ modalVisible, setModalVisible, id = null}) => {
                     />
                     <TouchableOpacity
                         onPress={validateAction}
-                        style={{ backgroundColor: 'blue', padding: 10, alignItems: 'center', borderRadius: 5, marginTop: 10 }}
+                        style={{ backgroundColor: 'rgb(13,203,0)', padding: 10, alignItems: 'center', borderRadius: 5, marginTop: 10 }}
                     >
-                        <Text style={{ color: 'white' }}>Valider</Text>
+                        <Text style={{ color: 'white', fontWeight: "bold"}}>Add</Text>
                     </TouchableOpacity>
                 </View>
                 </TouchableOpacity>
