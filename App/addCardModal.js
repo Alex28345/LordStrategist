@@ -2,17 +2,24 @@ import {Modal, Text, TextInput, TouchableOpacity, View} from "react-native";
 import {useState} from "react";
 import {addPlayer} from "./PlayerSlice";
 import {useDispatch} from "react-redux";
-const addCardModal = ({ modalVisible, setModalVisible }) => {
+const addCardModal = ({ modalVisible, setModalVisible}) => {
     const [name, setName] = useState('');
     const [race, setRace] = useState('');
     const [hp, setHp] = useState('');
     const [mp, setMp] = useState('');
     const [role, setRole] = useState('');
     const [guild, setGuild] = useState('');
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
     const addCard = () => {
-        // dispatch(addPlayer({name: name, race: race, hp: hp, mp: mp, role: role, guild: guild}));
+        dispatch(addPlayer({name: name, race: race, hp: hp, mp: mp, role: role, guild: guild}));
+        // Reset all states
+        setName('');
+        setRace('');
+        setHp('');
+        setMp('');
+        setRole('');
+        setGuild('');
         setModalVisible(false);
     };
 

@@ -18,7 +18,6 @@ const Footer = () => {
                         <Image style={styles.plusFooterImage} source={require("../assets/plus.png")}></Image>
                     </TouchableOpacity>
                 </View>
-
             </View>
 
             <TouchableOpacity>
