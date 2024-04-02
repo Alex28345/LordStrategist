@@ -28,24 +28,25 @@ const ListPresenter = () => {
 
     const renderItem = ({ item }) => (
         <View style={styles.item}>
-            <Text >{`id: ${item.id}`}</Text>
-            <Text >{`name: ${item.name}`}</Text>
-            <Text >{`race: ${item.race}`}</Text>
-            <Text >{`hp: ${item.hp}`}</Text>
-            <Text >{`mp: ${item.mp}`}</Text>
-            <Text >{`role: ${item.role}`}</Text>
-            <Text >{`guild: ${item.guild}`}</Text>
-            <TouchableOpacity style={styles.itemButton}
+            <Text style={styles.itemText}>{`ID\t\t\t ${item.id}`}</Text>
+            <Text style={styles.itemText}>{`Name\t\t ${item.name}`}</Text>
+            <Text style={styles.itemText}>{`Race\t\t ${item.race}`}</Text>
+            <Text style={styles.itemText}>{`HP\t\t\t ${item.hp}`}</Text>
+            <Text style={styles.itemText}>{`MP\t\t\t ${item.mp}`}</Text>
+            <Text style={styles.itemText}>{`Role\t\t ${item.role}`}</Text>
+            <Text style={styles.itemText}>{`Guild\t\t ${item.guild}`}</Text>
+            <CardModal modalVisible={modalVisible} setModalVisible={setModalVisible} id={item.id} />
+            <TouchableOpacity style={styles.itemButtonEdit} onPress={() => setModalVisible(true)}>
+                <Text>EDIT</Text>
+                <Image style={styles.itemButtonImage} source={require("../assets/edit.png")}></Image>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.itemButtonDelete}
                 onPress={() => deleteCard(item.id)}
             >
                 <Text>DELETE</Text>
                 <Image style={styles.itemButtonImage} source={require("../assets/cross.png")}></Image>
             </TouchableOpacity>
-            <CardModal modalVisible={modalVisible} setModalVisible={setModalVisible} id={item.id} />
-            <TouchableOpacity style={styles.itemButton} onPress={() => setModalVisible(true)}>
-                <Text>EDIT</Text>
-                <Image style={styles.itemButtonImage} source={require("../assets/edit.png")}></Image>
-            </TouchableOpacity>
+
         </View>
     );
 

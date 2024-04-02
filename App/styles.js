@@ -3,7 +3,7 @@ import {StyleSheet} from "react-native";
 const styles = StyleSheet.create({
     header: {
         width: '100%',
-        height: 130,
+        height: "16%",
         backgroundColor: '#3b3b3b',
         display:'flex',
         alignItems: 'center',
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     },
     footer: {
         width: '100%',
-        height: 100,
+        height: "12%",
         backgroundColor: '#3b3b3b',
         display: "flex",
         flexDirection: "row",
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     },
 
     flatList: {
-        height: "75%",
+        height: "72%",
         width: "100%",
         display: "flex"
     },
@@ -99,21 +99,48 @@ const styles = StyleSheet.create({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        width: 250,
-        marginBottom: 20,
-        backgroundColor: "#ffd1b9",
-        borderRadius: 40,
-        height: 250
+        width: 280,
+        height: 280,
+        margin: 10,
+        backgroundColor: "#e1e1e1",
+        borderRadius: 40
     },
-    itemButton: {
+    itemText: {
+        padding: 2,
+        margin: 1,
+        fontWeight: "bold",
+        borderWidth: 2,
+        borderColor: "#ffffff",
+        width: "80%",
+        height: 25,
+        color: "#812700"
+    },
+    itemButtonDelete: {
         display: "flex",
         flexDirection: "row",
         justifyContent: "center",
-        width: 100
+        alignItems:"center",
+        width: 150,
+        marginTop: 5,
+        borderWidth: 2,
+        borderRadius: 50,
+        backgroundColor: "#ff5d5d"
+    },
+    itemButtonEdit: {
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems:"center",
+        width: 150,
+        marginTop: 5,
+        borderWidth: 2,
+        borderRadius: 50,
+        backgroundColor: "#ffe073"
     },
     itemButtonImage: {
         width: 20,
-        height: 20
+        height: 20,
+        marginLeft: 5
     }
 
 });
