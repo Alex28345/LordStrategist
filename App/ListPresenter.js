@@ -3,7 +3,7 @@ import { View, Text, FlatList, StyleSheet } from 'react-native';
 import { useSelector} from 'react-redux';
 import {playerList} from "./PlayerSlice";
 
-const ListeJoueur = () => {
+const ListPresenter = () => {
     const data = useSelector(state => state.main.playerList)
 
     const renderItem = ({ item }) => (

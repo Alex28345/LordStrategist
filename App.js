@@ -3,7 +3,7 @@ import { StyleSheet, Text, View,TouchableOpacity, FlatList } from 'react-native'
 import React, { useState } from 'react';
 import Header from "./App/Header";
 import Footer from "./App/Footer";
-import ListeJoueur from "./App/ListPresenter";
+import ListPresenter from "./App/ListPresenter";
 import {Provider} from "react-redux";
 import styles from "./App/styles";
 import AddCardModal from "./App/addCardModal";
@@ -36,7 +36,7 @@ const App = () => {
       <Provider store={store}>
           <View style={styles.body}>
               <Header></Header>
-              <ListeJoueur></ListeJoueur>
+              <ListPresenter></ListPresenter>
               <Footer></Footer>
           </View>
       </Provider>
