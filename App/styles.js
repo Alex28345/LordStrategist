@@ -67,7 +67,53 @@ const styles = StyleSheet.create({
         width: 50,
         height: 50,
         borderRadius: 50,
+    },
+
+    container: {
+        display: "flex",
+        justifyContent: "flex-start",
+        alignItems: "center",
+    },
+
+    searchBar: {
+        borderColor: "black",
+        borderWidth: 2,
+        width: 350,
+        marginBottom: 10,
+        marginTop: 20,
+        borderRadius: "50%",
+        height: 40
+    },
+
+    flatList: {
+        height: 500,
+        width: "100%",
+        display: "flex"
+    },
+
+    item: {
+        borderColor: "black",
+        borderWidth: 2,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        width: 250,
+        marginBottom: 20,
+        backgroundColor: "#ffd1b9",
+        borderRadius: 40,
+        height: 250
+    },
+    itemButton: {
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        width: 100
+    },
+    itemButtonImage: {
+        width: 20,
+        height: 20
     }
+
 });
 
 export default styles;
