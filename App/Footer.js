@@ -3,13 +3,13 @@ import styles from './styles';
 import {View, Text, TouchableOpacity, Image, ViewComponent} from 'react-native';
 import AddCardModal from "./addCardModal";
 
-const Footer = () => {
+const Footer = ({ navigateTo }) => {
     const [modalVisible, setModalVisible] = useState(false);
 
     return (
         <View style={styles.footer}>
             <AddCardModal modalVisible={modalVisible} setModalVisible={setModalVisible} />
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigateTo()}>
                 <Image style={styles.footerImage} source={require("../assets/home.png")}></Image>
             </TouchableOpacity>
             <View style={styles.footerPlusBackgroundShadow}>
@@ -19,8 +19,7 @@ const Footer = () => {
                     </TouchableOpacity>
                 </View>
             </View>
-
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigateTo('Stats')}>
                 <Image style={styles.footerImage} source={require("../assets/statistique.png")}></Image>
             </TouchableOpacity>
         </View>
