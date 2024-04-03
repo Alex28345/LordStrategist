@@ -23,6 +23,7 @@ export const playerSlice = createSlice({
                 // Player with the given id does not exist, add a new player
                 state.playerList.push({id: data.id ?? state.nextID, name: data.name, race: data.race, hp: data.hp, mp: data.mp, role: data.role, guild: data.guild});
                 state.nextID += 1;
+                console.log("prime");
             }
         },
         deletePlayer: (state, id) => {
@@ -33,9 +34,33 @@ export const playerSlice = createSlice({
                 }
             }
         },
+        sortBy: (state, sortType) => {
+            sortType = sortType.payload;
+            switch (sortType) {
+                case "name":
+                    state.playerList.sort((a, b) => a.name > b.name ? 1 : -1);
+                    break;
+                case "race":
+                    state.playerList.sort((a, b) => a.race > b.race ? 1 : -1)
+                    break;
+                case "hp":
+                    state.playerList.sort((a, b) => a.hp > b.hp ? 1 : -1)
+                    break;
+                case "mp":
+                    state.playerList.sort((a, b) => a.mp > b.mp ? 1 : -1)
+                    break;
+                case "role":
+                    state.playerList.sort((a, b) => a.role > b.role ? 1 : -1)
+                    break;
+                case "guild":
+                    state.playerList.sort((a, b) => a.guild > b.guild ? 1 : -1)
+                    break;
+
+            }
+        }
     }
 })
-export const { addOrUpdatePlayer ,deletePlayer} = playerSlice.actions
+export const { addOrUpdatePlayer ,deletePlayer ,sortBy} = playerSlice.actions
 
 
 export const playerList = (state) => state.playerList

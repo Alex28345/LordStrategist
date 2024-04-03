@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {FlatList, Image, Text, TextInput, TouchableOpacity, View} from 'react-native';
-import {deletePlayer} from "./PlayerSlice";
+import {deletePlayer, sortBy} from "./PlayerSlice";
 import {useDispatch, useSelector} from 'react-redux';
 import styles from "./styles";
 import CardModal from "./CardModal";
@@ -27,6 +27,10 @@ const ListPresenter = () => {
 
     const deleteCard = (id) => {
         dispach(deletePlayer(id))
+    }
+    const sortPlayerCard = (sortType) => {
+        dispach(sortBy(sortType))
+        console.log("sort card by : ", sortType)
     }
 
     const renderItem = ({ item }) => (
@@ -60,6 +64,26 @@ const ListPresenter = () => {
                 value={givenFilter}
                 onChangeText={updatingFilter}
             />
+            <View>
+                <TouchableOpacity onPress={() => sortPlayerCard("name")}>
+                    <Text> Sort by name</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => sortPlayerCard("race")}>
+                    <Text> Sort by race </Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => sortPlayerCard("hp")}>
+                     <Text>Sort by hp</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => sortPlayerCard("mp")}>
+                     <Text>Sort by mp</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => sortPlayerCard("role")}>
+                     <Text>Sort by role</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => sortPlayerCard("guild")}>
+                    <Text>Sort by guild </Text>
+                </TouchableOpacity>
+            </View>
             <FlatList
                 data={filteredData}
                 renderItem={renderItem}
