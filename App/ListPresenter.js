@@ -11,11 +11,14 @@ const ListPresenter = () => {
     const dispach = useDispatch();
     const [modalVisible, setModalVisible] = useState(false);
     const filter = useSelector(state => state.playerFilter.filter);
-    const filteredData = data.filter(
-        player => player.name.toLocaleLowerCase().includes(filter.toLowerCase()));
-
+    const filteredData = data.filter(player =>
+        Object.values(player).some(value =>
+            value.toString().toLowerCase().includes(filter.toLowerCase())
+        )
+    );
     //barre de recherche
     const [givenFilter, setGivenFilter] = useState("");
+    const [idEdited, setIdEdited] = useState("");
     const data2 = useSelector(state => state.playerFilter.filter);
     const dispatch = useDispatch();
     const updatingFilter = (text) => {
@@ -24,6 +27,10 @@ const ListPresenter = () => {
     }
     //
 
+    const editCard = (id) => {
+        setModalVisible(true);
+        setIdEdited(id);
+    }
 
     const deleteCard = (id) => {
         dispach(deletePlayer(id))
@@ -42,8 +49,8 @@ const ListPresenter = () => {
             <Text style={styles.itemText}>{`MP\t\t\t ${item.mp}`}</Text>
             <Text style={styles.itemText}>{`Role\t\t ${item.role}`}</Text>
             <Text style={styles.itemText}>{`Guild\t\t ${item.guild}`}</Text>
-            <CardModal modalVisible={modalVisible} setModalVisible={setModalVisible} id={item.id} />
-            <TouchableOpacity style={styles.itemButtonEdit} onPress={() => setModalVisible(true)}>
+            <CardModal modalVisible={modalVisible} setModalVisible={setModalVisible} id={idEdited} />
+            <TouchableOpacity style={styles.itemButtonEdit} onPress={() => editCard(item.id)}>
                 <Text>EDIT</Text>
                 <Image style={styles.itemButtonImage} source={require("../assets/edit.png")}></Image>
             </TouchableOpacity>
