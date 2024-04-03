@@ -64,24 +64,25 @@ const ListPresenter = () => {
                 value={givenFilter}
                 onChangeText={updatingFilter}
             />
-            <View>
+            <View style={styles.filters}>
+                <Text style={styles.filterItem}>Sort by :</Text>
                 <TouchableOpacity onPress={() => sortPlayerCard("name")}>
-                    <Text> Sort by name</Text>
+                    <Text style={styles.filterItem}>Name</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => sortPlayerCard("race")}>
-                    <Text> Sort by race </Text>
+                    <Text style={styles.filterItem}>Race</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => sortPlayerCard("hp")}>
-                     <Text>Sort by hp</Text>
+                     <Text style={styles.filterItem}>HP</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => sortPlayerCard("mp")}>
-                     <Text>Sort by mp</Text>
+                     <Text style={styles.filterItem}>MP</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => sortPlayerCard("role")}>
-                     <Text>Sort by role</Text>
+                     <Text style={styles.filterItem}>Role</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => sortPlayerCard("guild")}>
-                    <Text>Sort by guild </Text>
+                    <Text style={styles.filterItem}>Guild</Text>
                 </TouchableOpacity>
             </View>
             <FlatList

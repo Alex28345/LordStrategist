@@ -99,9 +99,19 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         height: "6%"
     },
+    filters: {
+        display: "flex",
+        flexDirection: "row",
+        borderBottomWidth: 2,
+        width: "100%",
+        justifyContent: "center"
+    },
+    filterItem: {
+        margin: 5
+    },
 
     flatList: {
-        height: "65.1%",
+        height: "62.1%",
         width: "100%",
         display: "flex",
         backgroundColor: "white"
