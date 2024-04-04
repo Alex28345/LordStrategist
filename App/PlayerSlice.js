@@ -1,4 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
+import {savePlayerListToStorage} from "./StorageSaver";
 
 export const playerSlice = createSlice({
     name: 'playerCards',
@@ -8,10 +9,12 @@ export const playerSlice = createSlice({
             {id: 2, name: 'Grommash', race: 'orc', hp: 250, mp: 70, role: 'berserker', guild: 'Hord'},
             {id: 3, name: 'Anduin', race: 'Human', hp: 70, mp: 200, role: 'Healer', guild: 'Alliance'},
             {id: 4, name: 'Uther', race: 'Human', hp: 180, mp: 150, role: 'Tank Healer', guild: 'Alliance'}
-        ],
-        nextID: 5,
+        ]
     },
     reducers: {
+        setPlayerList: (state, action) => {
+            state.playerList = action.payload;
+        },
         addOrUpdatePlayer: (state, action) => {
             const data = action.payload;
             const playerIndex = state.playerList.findIndex(player => player.id === data.id);
@@ -21,10 +24,11 @@ export const playerSlice = createSlice({
                 state.playerList[playerIndex] = {id: data.id, name: data.name, race: data.race, hp: data.hp, mp: data.mp, role: data.role, guild: data.guild};
             } else {
                 // Player with the given id does not exist, add a new player
-                state.playerList.push({id: data.id ?? state.nextID, name: data.name, race: data.race, hp: data.hp, mp: data.mp, role: data.role, guild: data.guild});
-                state.nextID += 1;
+                const maxID = Math.max(...state.playerList.map(player => player.id)) + 1;
+                state.playerList.push({id: data.id ?? maxID, name: data.name, race: data.race, hp: data.hp, mp: data.mp, role: data.role, guild: data.guild});
                 console.log("prime");
             }
+            savePlayerListToStorage(state.playerList).catch(e => console.log(e));
         },
         deletePlayer: (state, id) => {
             id = id.payload
@@ -33,6 +37,7 @@ export const playerSlice = createSlice({
                     state.playerList.splice(i, 1);
                 }
             }
+            savePlayerListToStorage(state.playerList).catch(e => console.log(e));
         },
         sortBy: (state, sortType) => {
             sortType = sortType.payload;
@@ -59,9 +64,9 @@ export const playerSlice = createSlice({
             }
         }
     }
-})
-export const { addOrUpdatePlayer ,deletePlayer ,sortBy} = playerSlice.actions
 
+})
+export const { addOrUpdatePlayer ,deletePlayer ,sortBy, setPlayerList} = playerSlice.actions
 
 export const playerList = (state) => state.playerList
 export default playerSlice.reducer;
