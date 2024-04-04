@@ -112,7 +112,7 @@ const CardModal = ({modalVisible, setModalVisible, id = null}) => {
                                 marginTop: 10
                             }}
                         >
-                            <Text style={{color: 'white', fontWeight: "bold"}}>Add</Text>
+                            <Text style={{color: 'white', fontWeight: "bold"}}>confirm</Text>
                         </TouchableOpacity>
                     </View>
                 </TouchableOpacity>
