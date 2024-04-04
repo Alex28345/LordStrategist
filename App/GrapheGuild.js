@@ -3,6 +3,12 @@ import {Text, View} from 'react-native';
 import { BarChart } from 'react-native-chart-kit';
 
 const GuildGraph = ({ playerList }) => {
+    if (playerList.length <= 0) {
+        return (
+            <View>
+            </View>
+        )
+    }
     // Fonction pour compter le nombre de joueurs par guilde
     const countPlayersByGuild = () => {
         const guildCounts = {};

@@ -3,6 +3,14 @@ import {Text, View} from 'react-native';
 import { LineChart } from 'react-native-chart-kit';
 
 const GrapheHPMP = ({ playerList }) => {
+
+    if (playerList.length <= 0) {
+        return (
+            <View>
+                <Text>il faut avoir des joueurs pour avoir des Stats !</Text>
+            </View>
+        )
+    }
     // Calcul de la moyenne des points de vie (HP)
     const totalHP = playerList.reduce((total, player) => total + player.hp, 0);
     const averageHP = totalHP / playerList.length;
