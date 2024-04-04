@@ -1,8 +1,8 @@
 import React from 'react';
 import {Text, View} from 'react-native';
-import { BarChart } from 'react-native-chart-kit';
+import {BarChart} from 'react-native-chart-kit';
 
-const GuildGraph = ({ playerList }) => {
+const GuildGraph = ({playerList}) => {
     if (playerList.length <= 0) {
         return (
             <View>

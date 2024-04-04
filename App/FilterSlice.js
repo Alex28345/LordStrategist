@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import {createSlice} from '@reduxjs/toolkit';
 
 export const filterSlice = createSlice({
     name: 'headerSlice',
@@ -8,15 +8,15 @@ export const filterSlice = createSlice({
     reducers: {
         updateFilter: (state, givenFilter) => {
             givenFilter = givenFilter.payload;
-            if (givenFilter.length > 1){
+            if (givenFilter.length > 1) {
                 state.filter = givenFilter;
-            }else{
+            } else {
                 state.filter = "";
             }
         }
     }
 })
-export const { updateFilter} = filterSlice.actions
+export const {updateFilter} = filterSlice.actions
 
 
 export const filter = (state) => state.filter;

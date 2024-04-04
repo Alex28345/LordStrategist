@@ -1,10 +1,10 @@
 import {Text, View} from "react-native";
 import GrapheHPMP from "./GrapheHPMP";
 import GuildGraph from "./GrapheGuild";
-import {useDispatch, useSelector} from 'react-redux';
+import {useSelector} from 'react-redux';
 
 
-const StatsPage = () =>{
+const StatsPage = () => {
     const data = useSelector(state => state.main.playerList);
 
     return (

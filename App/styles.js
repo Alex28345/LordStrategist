@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
         width: '100%',
         height: "16%",
         backgroundColor: '#3b3b3b',
-        display:'flex',
+        display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         borderBottomColor: "#282828",
@@ -18,8 +18,8 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     body: {
-      width: "100%",
-      height: "100%",
+        width: "100%",
+        height: "100%",
     },
     image: {
         width: 50,
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     cardModal: {
         backgroundColor: 'white',
         width: 300,
-        height: 300,
+        height: 400,
         padding: 10,
         borderRadius: 5,
         borderWidth: 5
@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "row",
         justifyContent: "center",
-        alignItems:"center",
+        alignItems: "center",
         width: 150,
         marginTop: 5,
         borderWidth: 2,
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "row",
         justifyContent: "center",
-        alignItems:"center",
+        alignItems: "center",
         width: 150,
         marginTop: 5,
         borderWidth: 2,

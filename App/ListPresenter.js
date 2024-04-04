@@ -25,9 +25,10 @@ const ListPresenter = () => {
     useEffect(() => {
         async function loadPlayerList() {
             const playerList = await loadPlayerListFromStorage();
-            if(playerList !== null)
+            if (playerList !== null)
                 dispatch(setPlayerList(playerList));
         }
+
         loadPlayerList().then(r => console.log("Player list loaded")).catch(e => console.log(e));
     }, [dispatch]);
 
@@ -47,10 +48,9 @@ const ListPresenter = () => {
     }
     const sortPlayerCard = (sortType) => {
         dispatch(sortBy(sortType))
-        console.log("sort card by : ", sortType)
     }
 
-    const renderItem = ({ item }) => (
+    const renderItem = ({item}) => (
         <View style={styles.item}>
             <Text style={styles.itemText}>{`ID\t\t\t ${item.id}`}</Text>
             <Text style={styles.itemText}>{`Name\t\t ${item.name}`}</Text>
@@ -59,13 +59,13 @@ const ListPresenter = () => {
             <Text style={styles.itemText}>{`MP\t\t\t ${item.mp}`}</Text>
             <Text style={styles.itemText}>{`Role\t\t ${item.role}`}</Text>
             <Text style={styles.itemText}>{`Guild\t\t ${item.guild}`}</Text>
-            <CardModal modalVisible={modalVisible} setModalVisible={setModalVisible} id={idEdited} />
+            <CardModal modalVisible={modalVisible} setModalVisible={setModalVisible} id={idEdited}/>
             <TouchableOpacity style={styles.itemButtonEdit} onPress={() => editCard(item.id)}>
                 <Text>EDIT</Text>
                 <Image style={styles.itemButtonImage} source={require("../assets/edit.png")}></Image>
             </TouchableOpacity>
             <TouchableOpacity style={styles.itemButtonDelete}
-                onPress={() => deleteCard(item.id)}
+                              onPress={() => deleteCard(item.id)}
             >
                 <Text>DELETE</Text>
                 <Image style={styles.itemButtonImage} source={require("../assets/cross.png")}></Image>
@@ -77,9 +77,9 @@ const ListPresenter = () => {
     return (
         <View style={styles.container}>
             <TextInput style={styles.searchBar}
-                placeholder={"  Type a filter"}
-                value={givenFilter}
-                onChangeText={updatingFilter}
+                       placeholder={"  Type a filter"}
+                       value={givenFilter}
+                       onChangeText={updatingFilter}
             />
             <View style={styles.filters}>
                 <Text style={styles.filterItem}>Sort by :</Text>
@@ -90,13 +90,13 @@ const ListPresenter = () => {
                     <Text style={styles.filterItem}>Race</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => sortPlayerCard("hp")}>
-                     <Text style={styles.filterItem}>HP</Text>
+                    <Text style={styles.filterItem}>HP</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => sortPlayerCard("mp")}>
-                     <Text style={styles.filterItem}>MP</Text>
+                    <Text style={styles.filterItem}>MP</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => sortPlayerCard("role")}>
-                     <Text style={styles.filterItem}>Role</Text>
+                    <Text style={styles.filterItem}>Role</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => sortPlayerCard("guild")}>
                     <Text style={styles.filterItem}>Guild</Text>

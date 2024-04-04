@@ -47,7 +47,7 @@ export const playerSlice = createSlice({
         deletePlayer: (state, id) => {
             id = id.payload
             for (let i = 0; i < state.playerList.length; i++) {
-                if (state.playerList[i]["id"] === id){
+                if (state.playerList[i]["id"] === id) {
                     state.playerList.splice(i, 1);
                 }
             }
@@ -80,7 +80,7 @@ export const playerSlice = createSlice({
     }
 
 })
-export const { addOrUpdatePlayer ,deletePlayer ,sortBy, setPlayerList} = playerSlice.actions
+export const {addOrUpdatePlayer, deletePlayer, sortBy, setPlayerList} = playerSlice.actions
 
 export const playerList = (state) => state.playerList
 export default playerSlice.reducer;

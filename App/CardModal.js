@@ -4,7 +4,7 @@ import {addOrUpdatePlayer} from "./PlayerSlice";
 import {useDispatch, useSelector} from "react-redux";
 import styles from './styles';
 
-const CardModal = ({ modalVisible, setModalVisible, id = null}) => {
+const CardModal = ({modalVisible, setModalVisible, id = null}) => {
     const [actualId, setActualId] = useState(id);
     const [name, setName] = useState('');
     const [race, setRace] = useState('');
@@ -49,7 +49,7 @@ const CardModal = ({ modalVisible, setModalVisible, id = null}) => {
             visible={modalVisible}
         >
             <TouchableOpacity
-                style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
+                style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}
                 activeOpacity={1}
                 onPressOut={() => setModalVisible(false)}
             >
@@ -57,56 +57,68 @@ const CardModal = ({ modalVisible, setModalVisible, id = null}) => {
                     activeOpacity={1}
                     onPress={(e) => e.stopPropagation()}
                 >
-                <View style={styles.cardModal}>
-                    <TextInput
-                        style={{ borderWidth: 1, borderRadius: 10, marginBottom: 10, padding: 3}}
-                        placeholder="Name"
-                        value={name}
-                        onChangeText={setName}
-                    />
-                    <TextInput
-                        style={{ borderWidth: 1, borderRadius: 10, marginBottom: 10, padding: 3}}
-                        placeholder="Race"
-                        value={race}
-                        onChangeText={setRace}
-                    />
-                    <TextInput
-                        style={{ borderWidth: 1, borderRadius: 10, marginBottom: 10, padding: 3}}
-                        placeholder="HP"
-                        value={hp}
-                        onChangeText={setHp}
-                        keyboardType="numeric"
-                    />
-                    <TextInput
-                        style={{ borderWidth: 1, borderRadius: 10, marginBottom: 10, padding: 3}}
-                        placeholder="MP"
-                        value={mp}
-                        onChangeText={setMp}
-                        keyboardType="numeric"
-                    />
-                    <TextInput
-                        style={{ borderWidth: 1, borderRadius: 10, marginBottom: 10, padding: 3}}
-                        placeholder="Role"
-                        value={role}
-                        onChangeText={setRole}
-                    />
-                    <TextInput
-                        style={{ borderWidth: 1, borderRadius: 10, marginBottom: 10, padding: 3}}
-                        placeholder="Guild"
-                        value={guild}
-                        onChangeText={setGuild}
-                    />
-                    <TouchableOpacity
-                        onPress={validateAction}
-                        style={{ backgroundColor: 'rgb(13,203,0)', padding: 10, alignItems: 'center', borderRadius: 5, marginTop: 10 }}
-                    >
-                        <Text style={{ color: 'white', fontWeight: "bold"}}>Add</Text>
-                    </TouchableOpacity>
-                </View>
+                    <View style={styles.cardModal}>
+                        <Text>Name of the player:</Text>
+                        <TextInput
+                            style={{borderWidth: 1, borderRadius: 10, marginBottom: 10, padding: 3}}
+                            placeholder="Name"
+                            value={name}
+                            onChangeText={setName}
+                        />
+                        <Text>Race of the player:</Text>
+                        <TextInput
+                            style={{borderWidth: 1, borderRadius: 10, marginBottom: 10, padding: 3}}
+                            placeholder="Race"
+                            value={race}
+                            onChangeText={setRace}
+                        />
+                        <Text>Health points (HP) of the player:</Text>
+                        <TextInput
+                            style={{borderWidth: 1, borderRadius: 10, marginBottom: 10, padding: 3}}
+                            placeholder="HP"
+                            value={hp}
+                            onChangeText={setHp}
+                            keyboardType="numeric"
+                        />
+                        <Text>Mana points (MP) of the player:</Text>
+                        <TextInput
+                            style={{borderWidth: 1, borderRadius: 10, marginBottom: 10, padding: 3}}
+                            placeholder="MP"
+                            value={mp}
+                            onChangeText={setMp}
+                            keyboardType="numeric"
+                        />
+                        <Text>Role of the player:</Text>
+                        <TextInput
+                            style={{borderWidth: 1, borderRadius: 10, marginBottom: 10, padding: 3}}
+                            placeholder="Role"
+                            value={role}
+                            onChangeText={setRole}
+                        />
+                        <Text>Guild of the player:</Text>
+                        <TextInput
+                            style={{borderWidth: 1, borderRadius: 10, marginBottom: 10, padding: 3}}
+                            placeholder="Guild"
+                            value={guild}
+                            onChangeText={setGuild}
+                        />
+                        <TouchableOpacity
+                            onPress={validateAction}
+                            style={{
+                                backgroundColor: 'rgb(13,203,0)',
+                                padding: 10,
+                                alignItems: 'center',
+                                borderRadius: 5,
+                                marginTop: 10
+                            }}
+                        >
+                            <Text style={{color: 'white', fontWeight: "bold"}}>Add</Text>
+                        </TouchableOpacity>
+                    </View>
                 </TouchableOpacity>
             </TouchableOpacity>
         </Modal>
-      );
+    );
 }
 
 export default CardModal;

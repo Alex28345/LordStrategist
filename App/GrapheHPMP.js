@@ -1,8 +1,8 @@
 import React from 'react';
 import {Text, View} from 'react-native';
-import { LineChart } from 'react-native-chart-kit';
+import {LineChart} from 'react-native-chart-kit';
 
-const GrapheHPMP = ({ playerList }) => {
+const GrapheHPMP = ({playerList}) => {
 
     if (playerList.length <= 0) {
         return (
@@ -12,12 +12,12 @@ const GrapheHPMP = ({ playerList }) => {
         )
     }
     // Calcul de la moyenne des points de vie (HP)
-    const totalHP = playerList.reduce((total, player) => total + player.hp, 0);
-    const averageHP = totalHP / playerList.length;
+    const totalHP = playerList.reduce((total, player) => total + (+player.hp), 0);
+    const averageHP = (totalHP / playerList.length).toFixed(2);
 
     // Calcul de la moyenne des points de mana (MP)
     const totalMP = playerList.reduce((total, player) => total + player.mp, 0);
-    const averageMP = totalMP / playerList.length;
+    const averageMP = (totalMP / playerList.length).toFixed(2);
 
     // Extracting data for the graph (HP and MP)
     const hpData = playerList.map(player => player.hp);
