@@ -6,9 +6,6 @@ export const playerSlice = createSlice({
     initialState: {
         playerList: [
             {id: 1, name: 'Gul\'dan', race: 'orc', hp: 50, mp: 200, role: 'dark sorcerer', guild: 'Hord'},
-            {id: 2, name: 'Grommash', race: 'orc', hp: 250, mp: 70, role: 'berserker', guild: 'Hord'},
-            {id: 3, name: 'Anduin', race: 'Human', hp: 70, mp: 200, role: 'Healer', guild: 'Alliance'},
-            {id: 4, name: 'Uther', race: 'Human', hp: 180, mp: 150, role: 'Tank Healer', guild: 'Alliance'}
         ]
     },
     reducers: {
@@ -21,13 +18,28 @@ export const playerSlice = createSlice({
 
             if (playerIndex !== -1) {
                 // Player with the given id exists, update the player
-                state.playerList[playerIndex] = {id: data.id, name: data.name, race: data.race, hp: data.hp, mp: data.mp, role: data.role, guild: data.guild};
+                state.playerList[playerIndex] = {
+                    id: data.id,
+                    name: data.name || 'Default Name',
+                    race: data.race || 'Default Race',
+                    hp: data.hp || 0,
+                    mp: data.mp || 0,
+                    role: data.role || 'Default Role',
+                    guild: data.guild || 'Default Guild'
+                };
             } else {
                 // Player with the given id does not exist, add a new player
                 let id = 1
                 const maxID = Math.max(Math.max(...state.playerList.map(player => player.id)) + 1, id);
-
-                state.playerList.push({id: data.id ?? maxID, name: data.name, race: data.race, hp: data.hp, mp: data.mp, role: data.role, guild: data.guild});
+                state.playerList.push({
+                    id: data.id ?? maxID,
+                    name: data.name || 'Default Name',
+                    race: data.race || 'Default Race',
+                    hp: data.hp || 0,
+                    mp: data.mp || 0,
+                    role: data.role || 'Default Role',
+                    guild: data.guild || 'Default Guild'
+                });
                 console.log("prime");
             }
             savePlayerListToStorage(state.playerList).catch(e => console.log(e));
