@@ -1,14 +1,14 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {FlatList, Image, Text, TextInput, TouchableOpacity, View} from 'react-native';
-import {deletePlayer, sortBy} from "./PlayerSlice";
+import {deletePlayer, setPlayerList, sortBy} from "./PlayerSlice";
 import {useDispatch, useSelector} from 'react-redux';
 import styles from "./styles";
 import CardModal from "./CardModal";
 import {updateFilter} from "./FilterSlice";
+import {loadPlayerListFromStorage} from "./StorageSaver";
 
 const ListPresenter = () => {
     const data = useSelector(state => state.main.playerList);
-    const dispach = useDispatch();
     const [modalVisible, setModalVisible] = useState(false);
     const filter = useSelector(state => state.playerFilter.filter);
     const filteredData = data.filter(player =>
@@ -21,6 +21,15 @@ const ListPresenter = () => {
     const [idEdited, setIdEdited] = useState("");
     const data2 = useSelector(state => state.playerFilter.filter);
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        async function loadPlayerList() {
+            const playerList = await loadPlayerListFromStorage();
+            dispatch(setPlayerList(playerList));
+        }
+        loadPlayerList().then(r => console.log("Player list loaded")).catch(e => console.log(e));
+    }, [dispatch]);
+
     const updatingFilter = (text) => {
         dispatch(updateFilter(text));
         setGivenFilter(text);
@@ -33,10 +42,10 @@ const ListPresenter = () => {
     }
 
     const deleteCard = (id) => {
-        dispach(deletePlayer(id))
+        dispatch(deletePlayer(id))
     }
     const sortPlayerCard = (sortType) => {
-        dispach(sortBy(sortType))
+        dispatch(sortBy(sortType))
         console.log("sort card by : ", sortType)
     }
 
