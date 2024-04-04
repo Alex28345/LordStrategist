@@ -8,7 +8,7 @@ export const filterSlice = createSlice({
     reducers: {
         updateFilter: (state, givenFilter) => {
             givenFilter = givenFilter.payload;
-            if (givenFilter.length > 2){
+            if (givenFilter.length > 1){
                 state.filter = givenFilter;
             }else{
                 state.filter = "";
