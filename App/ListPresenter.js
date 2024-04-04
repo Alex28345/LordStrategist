@@ -25,7 +25,8 @@ const ListPresenter = () => {
     useEffect(() => {
         async function loadPlayerList() {
             const playerList = await loadPlayerListFromStorage();
-            dispatch(setPlayerList(playerList));
+            if(playerList !== null)
+                dispatch(setPlayerList(playerList));
         }
         loadPlayerList().then(r => console.log("Player list loaded")).catch(e => console.log(e));
     }, [dispatch]);

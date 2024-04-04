@@ -24,7 +24,9 @@ export const playerSlice = createSlice({
                 state.playerList[playerIndex] = {id: data.id, name: data.name, race: data.race, hp: data.hp, mp: data.mp, role: data.role, guild: data.guild};
             } else {
                 // Player with the given id does not exist, add a new player
-                const maxID = Math.max(...state.playerList.map(player => player.id)) + 1;
+                let id = 1
+                const maxID = Math.max(Math.max(...state.playerList.map(player => player.id)) + 1, id);
+
                 state.playerList.push({id: data.id ?? maxID, name: data.name, race: data.race, hp: data.hp, mp: data.mp, role: data.role, guild: data.guild});
                 console.log("prime");
             }
